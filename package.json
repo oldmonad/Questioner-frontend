@@ -1,0 +1,81 @@
+{
+  "name": "questioner-frontend",
+  "version": "1.0.0",
+  "description": "Questioner app frontend with react",
+  "main": "index.js",
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "exclude": [
+      "doc",
+      "coverage"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "all": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add --force"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add --force"
+    ]
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "prettier": "prettier --write '**/*.{js,jsx}'",
+    "pretest": "NODE_ENV=test npm run lint && npm run prettier",
+    "test": "NODE_ENV=test nyc mocha --recursive src/tests --require @babel/register --exit",
+    "test:watch": "NODE_ENV=test mocha  --recursive src/tests --require @babel/register --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "node_modules/eslint/bin/eslint.js src --fix"
+  },
+  "author": "Oparah Dimkpa",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-regenerator": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
+    "@babel/runtime": "^7.4.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.1.0",
+    "lint-staged": "^8.1.5",
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
+    "prettier": "^1.16.4",
+    "react-hot-loader": "^4.8.4",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
