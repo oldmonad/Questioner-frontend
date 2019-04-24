@@ -1,0 +1,29 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - stable
+
+install:
+  - npm install
+
+cache:
+  directories:
+  - node_modules
+
+script:
+  - npm test
+
+after_success:
+  - npm run coveralls
+
+deploy:
+  provider: heroku
+  app: questioner-frontend
+  on:
+    repo: dbytecoderc/Questioner-frontend
+    branch: develop
+  api_key:
+    secure: "ba956302-786f-4f6d-bb3a-28cf57f8e4ab"
+
