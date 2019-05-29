@@ -35,24 +35,65 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "start": "node server.js",
+    "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'",
     "build": "webpack --mode production",
-    "coveralls": "cat coverage/lcov.info | coveralls",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
     "prettier": "prettier --write '**/*.{js,jsx}'",
     "pretest": "NODE_ENV=test npm run lint && npm run prettier",
-    "test": "NODE_ENV=test nyc mocha --recursive src/tests --require @babel/register --exit",
-    "test:watch": "NODE_ENV=test mocha  --recursive src/tests --require @babel/register --watch",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "jest",
+    "test:update": "jest --verbose --coverage --updateSnapshot",
+    "test:watch": "jest --verbose --watch",
+    "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html",
     "lint": "node_modules/eslint/bin/eslint.js src --fix"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/setup/setupEnzyme.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss|svg)$": "<rootDir>/src/components/__mocks__/fileMock.js",
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "babel-jest"
+    },
+    "transform": {
+      "^.+\\.(jsx|js)?$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ]
   },
   "author": "Oparah Dimkpa",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "css-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-toastify": "^5.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "simple-react-validator": "^1.0.7",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-transform-regenerator": "^7.4.0",
     "@babel/plugin-transform-runtime": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
@@ -62,18 +103,25 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "coveralls": "^3.0.3",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "file-loader": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.1.0",
+    "jest": "^24.8.0",
     "lint-staged": "^8.1.5",
     "nodemon": "^1.18.10",
     "nyc": "^13.3.0",
     "prettier": "^1.16.4",
+    "prettier-eslint": "^8.8.2",
     "react-hot-loader": "^4.8.4",
+    "redux-mock-store": "^1.5.3",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
