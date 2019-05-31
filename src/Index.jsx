@@ -13,19 +13,15 @@ import store from './store/store';
 import Footer from './components/presentationals/Footer/Footer';
 
 import 'react-toastify/dist/ReactToastify.css';
+import './reset.css';
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <div>
-        <div className="page--content">
-          <Navbar />
-          <ToastContainer autoClose={5000} />
-          <main>
-            <Routes />
-          </main>
-        </div>
-
+      <ToastContainer autoClose={5000} />
+      <div className="page--content">
+        <Navbar />
+        <Routes />
         <Footer />
       </div>
     </Provider>
