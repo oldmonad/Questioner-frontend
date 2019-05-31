@@ -116,7 +116,7 @@ section {
 
 body {
   line-height: 1;
-  background: #F9F9F9;
+  /* background: #F9F9F9; */
   font-family: 'Nunito', sans-serif;
   height: 100%;
 }

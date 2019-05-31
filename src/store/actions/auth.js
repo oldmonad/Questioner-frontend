@@ -6,6 +6,8 @@ import {
   LOGIN_INITIALIZED,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  LOGOUT_INITIALIZED,
+  LOGOUT_SUCCESS,
 } from './types';
 import {
   setToken,
@@ -54,6 +56,18 @@ export const loginError = error => {
   return {
     type: LOGIN_FAILED,
     error,
+  };
+};
+
+export const logoutInitialize = () => {
+  return {
+    type: LOGOUT_INITIALIZED,
+  };
+};
+
+export const logoutSuccess = () => {
+  return {
+    type: LOGOUT_SUCCESS,
   };
 };
 

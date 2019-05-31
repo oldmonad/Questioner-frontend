@@ -5,6 +5,8 @@ import {
   LOGIN_INITIALIZED,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  LOGOUT_INITIALIZED,
+  LOGOUT_SUCCESS,
 } from '../actions/types';
 
 export const initialState = {
