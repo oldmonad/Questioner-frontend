@@ -1,0 +1,49 @@
+
+.img-thumbnail{
+  margin: 0;
+}
+
+.topic{
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.icon{
+  font-size: 1.5rem;
+}
+
+.location{
+  font-size: 1.2rem;
+}
+
+
+.meetup-container{
+  min-height: 100vh;
+}
+
+.question-card{
+  border-radius: 1px;
+}
+
+
+.thumb-btn-label {
+  position: relative;
+  left: -12px;
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;
+  border-radius: 1px;
+}
+
+.btn-labeled {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.text-areax{
+  resize: none;
+}
+
+.question-btn{
+  color: #ffffff !important;
+  cursor: pointer;
+}
