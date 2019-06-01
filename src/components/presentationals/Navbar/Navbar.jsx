@@ -26,7 +26,7 @@ const Navbar = () => {
         <ul className="mr-auto" />
         <ul className="navbar-nav mt-2 mt-lg-0">
           <li className="nav-item">
-            <Link to="/login" className="btn btn-primary">
+            <Link to="/login" className="btn btn-dark">
               Login
             </Link>
           </li>

@@ -1,0 +1,14 @@
+.full-page-loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 50000;
+  opacity: 1;
+
+}

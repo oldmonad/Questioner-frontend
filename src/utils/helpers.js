@@ -5,9 +5,6 @@ export const decodeToken = token => {
 };
 
 export function setToken(token) {
-  if (getToken()) {
-    destroyToken();
-  }
   localStorage.setItem('token', token);
 }
 
