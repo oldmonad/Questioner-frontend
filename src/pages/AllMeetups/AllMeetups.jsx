@@ -20,7 +20,7 @@ export class AllMeetups extends Component {
         {isLoading && <FullPageLoader />}
         <div className="mt-4">
           {getToken() && isAdmin() && (
-            <Link className="btn btn-dark" to="/create-meetup">
+            <Link className="btn btn-dark ml-4" to="/create-meetup">
               Create Meetup
             </Link>
           )}

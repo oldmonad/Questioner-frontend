@@ -10,7 +10,6 @@ import Navbar from './components/presentationals/Navbar/Navbar';
 
 import Routes from './Routes.jsx';
 import store from './store/store';
-import Footer from './components/presentationals/Footer/Footer';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './reset.css';
@@ -22,7 +21,6 @@ ReactDOM.render(
       <div className="page--content">
         <Navbar />
         <Routes />
-        <Footer />
       </div>
     </Provider>
   </BrowserRouter>,

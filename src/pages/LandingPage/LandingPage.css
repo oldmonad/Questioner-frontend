@@ -1,0 +1,8 @@
+.jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url('https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
