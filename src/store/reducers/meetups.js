@@ -5,15 +5,16 @@ import {
   CREATE_MEETUPS_INITIALIZED,
   CREATE_MEETUPS_SUCCESS,
   CREATE_MEETUPS_ERROR,
-  FETCH_SINGLE_MEETUPS_INITIALIZED,
-  FETCH_SINGLE_MEETUPS_SUCCESS,
-  FETCH_SINGLE_MEETUPS_ERROR,
+  FETCH_SINGLE_MEETUP_INITIALIZED,
+  FETCH_SINGLE_MEETUP_SUCCESS,
+  FETCH_SINGLE_MEETUP_ERROR,
 } from '../actions/types';
 
 export const initialState = {
   isLoading: false,
   errorResponse: {},
-  successResponse: { status: '' },
+  meetups: { status: '' },
+  meetup: {},
 };
 
 export const meetupReducer = (state = initialState, action) => {
@@ -27,7 +28,7 @@ export const meetupReducer = (state = initialState, action) => {
     case FETCH_MEETUPS_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
+        meetups: action.response,
         isLoading: false,
         errorResponse: [],
       };
@@ -48,7 +49,7 @@ export const meetupReducer = (state = initialState, action) => {
     case CREATE_MEETUPS_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
+        meetupsResponse: action.response,
         isLoading: false,
         errorResponse: [],
       };
@@ -60,21 +61,21 @@ export const meetupReducer = (state = initialState, action) => {
         errorResponse: action.error,
       };
 
-    case FETCH_SINGLE_MEETUPS_INITIALIZED:
+    case FETCH_SINGLE_MEETUP_INITIALIZED:
       return {
         ...state,
         isLoading: true,
       };
 
-    case FETCH_SINGLE_MEETUPS_SUCCESS:
+    case FETCH_SINGLE_MEETUP_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
+        meetup: action.response,
         isLoading: false,
         errorResponse: [],
       };
 
-    case FETCH_SINGLE_MEETUPS_ERROR:
+    case FETCH_SINGLE_MEETUP_ERROR:
       return {
         ...state,
         isLoading: false,
