@@ -22,10 +22,13 @@ export class FetchAllMeetups extends Component {
     history.push(`/meetup=${id}`);
   };
   render() {
-    const { meetups, isLoading } = this.props;
+    const {
+      meetups: { meetups },
+      isLoading,
+    } = this.props;
     let meetuplist;
-    if (meetups.successResponse.data) {
-      meetuplist = meetups.successResponse.data.map((meetup, key) => {
+    if (meetups.data) {
+      meetuplist = meetups.data.map((meetup, key) => {
         return (
           <Fragment key={meetup.id}>
             <div

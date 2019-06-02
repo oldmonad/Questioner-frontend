@@ -106,7 +106,7 @@ GetSIngleQuestion.prototypes = {
   fetchQuestion: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ question: state.question });
+const mapStateToProps = state => ({ question: state.questions });
 
 export default connect(
   mapStateToProps,

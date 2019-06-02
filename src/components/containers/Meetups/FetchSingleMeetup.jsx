@@ -20,14 +20,17 @@ fontawesome.library.add(
   faThumbsDown,
 );
 
+import CreateQuestion from '../Questions/CreateQuestion';
+
 import FullPageLoader from '../../presentationals/FullPageLoader/FullPageLoader';
 
 //Reducer
 import { fetchOneMeetup } from '../../../store/actions/meetups';
+import { fetchQuestions } from '../../../store/actions/questions';
 import Questions from '../../presentationals/Questions/Questions';
 
 export class FetchSingleMeetup extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     const {
       match: {
         params: { meetupId },
@@ -36,21 +39,21 @@ export class FetchSingleMeetup extends Component {
     } = this.props;
 
     this.props.fetchOneMeetup(meetupId, history);
+    this.props.fetchQuestions(meetupId);
   }
 
   render() {
-    const meetup = this.props.meetups.successResponse;
     const {
-      meetups: { isLoading },
+      meetups: { isLoading, meetup },
+      questions: { questions },
     } = this.props;
 
     let meetupQuestions;
-    if (meetup.questions) {
-      meetupQuestions = meetup.questions.map(question => (
+    if (questions) {
+      meetupQuestions = questions.map(question => (
         <Questions question={question} key={question.id} />
       ));
     }
-
     return (
       <Fragment>
         {isLoading && <FullPageLoader />}
@@ -86,18 +89,7 @@ export class FetchSingleMeetup extends Component {
               <div className="row">
                 <div className="col-md-8">
                   <div className="form-group purple-border">
-                    <textarea
-                      placeholder="Ask a question..."
-                      className="form-control text-areax"
-                      id="exampleFormControlTextarea4"
-                      rows="3"
-                    />
-                    <button
-                      type="button"
-                      className="btn btn-dark mt-2 text-right"
-                    >
-                      Post Question
-                    </button>
+                    <CreateQuestion />
                   </div>
                   {meetupQuestions}
                 </div>
@@ -127,11 +119,15 @@ export class FetchSingleMeetup extends Component {
 
 FetchSingleMeetup.prototypes = {
   fetchOneMeetup: PropTypes.func.isRequired,
+  fetchOneMeetup: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ meetups: state.meetups });
+const mapStateToProps = state => ({
+  meetups: state.meetups,
+  questions: state.questions,
+});
 
 export default connect(
   mapStateToProps,
-  { fetchOneMeetup },
+  { fetchOneMeetup, fetchQuestions },
 )(withRouter(FetchSingleMeetup));

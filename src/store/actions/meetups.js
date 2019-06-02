@@ -10,9 +10,9 @@ import {
   CREATE_MEETUPS_INITIALIZED,
   CREATE_MEETUPS_SUCCESS,
   CREATE_MEETUPS_ERROR,
-  FETCH_SINGLE_MEETUPS_INITIALIZED,
-  FETCH_SINGLE_MEETUPS_SUCCESS,
-  FETCH_SINGLE_MEETUPS_ERROR,
+  FETCH_SINGLE_MEETUP_INITIALIZED,
+  FETCH_SINGLE_MEETUP_SUCCESS,
+  FETCH_SINGLE_MEETUP_ERROR,
 } from './types';
 
 export const fetchMeetupIntialize = () => {
@@ -57,21 +57,14 @@ export const createMeetupError = error => {
 
 export const fetchSingleMeetupIntialize = () => {
   return {
-    type: FETCH_SINGLE_MEETUPS_INITIALIZED,
+    type: FETCH_SINGLE_MEETUP_INITIALIZED,
   };
 };
 
 export const fetchSingleMeetupSuccess = response => {
   return {
-    type: FETCH_SINGLE_MEETUPS_SUCCESS,
+    type: FETCH_SINGLE_MEETUP_SUCCESS,
     response,
-  };
-};
-
-export const fetchSingleMeetupError = error => {
-  return {
-    type: FETCH_SINGLE_MEETUPS_ERROR,
-    error,
   };
 };
 

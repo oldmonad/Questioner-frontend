@@ -61,7 +61,6 @@ export class Signup extends Component {
       history,
       location: { state },
     } = this.props;
-    console.log(this.props);
 
     await this.props.signupUser(this.state.userDetails, history, redirectUrl);
     this.setState({
