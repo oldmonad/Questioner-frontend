@@ -67,7 +67,6 @@ export class FetchAllMeetups extends Component {
         );
       });
     }
-
     return <>{meetuplist}</>;
   }
 }

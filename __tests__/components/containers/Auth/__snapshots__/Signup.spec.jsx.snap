@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup component renders without errors 1`] = `
+<div>
+  <div
+    className="signup--section"
+    id="signup-form__wrapper"
+  >
+    <h1
+      className="signup--section__header"
+    >
+      Sign up
+    </h1>
+    <form
+      className="custom--form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control"
+          name="firstname"
+          onChange={[Function]}
+          placeholder="First name"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="validation--requirement"
+      />
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="validation--requirement"
+      />
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control"
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="validation--requirement"
+      />
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="validation--requirement"
+      />
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control last"
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder="Confirm Password"
+          type="password"
+          value=""
+        />
+        <div
+          className="validation--requirement--last"
+        />
+        <div
+          className="validation--requirement--last"
+        />
+      </div>
+      <Button
+        className="submit--button"
+        type="submit"
+        value={<Loader />}
+      />
+    </form>
+    <div
+      className="instruction"
+    >
+      <p
+        className="instruction__acount"
+      >
+        Have an account?
+      </p>
+      <Link
+        className="instruction__login"
+        to="/login"
+      >
+        Login
+      </Link>
+    </div>
+  </div>
+</div>
+`;

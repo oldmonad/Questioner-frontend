@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component renders without errors 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Create a meetup
+  </h1>
+  <Input
+    className="form-control form-rounded"
+    name="topic"
+    onChange={[Function]}
+    placeholder="Meetup topic..."
+    type="text"
+    value=""
+  />
+  <br />
+  <Input
+    className="form-control form-rounded"
+    name="location"
+    onChange={[Function]}
+    placeholder="Meetup address..."
+    type="text"
+    value=""
+  />
+  <br />
+  <Input
+    className="form-control form-rounded"
+    name="time"
+    onChange={[Function]}
+    placeholder="Meetup time"
+    type="datetime-local"
+    value=""
+  />
+  <br />
+  <Button
+    className="btn-dark submit--button"
+    onClick={[Function]}
+    type="submit"
+    value="Post Meetup"
+  />
+</div>
+`;

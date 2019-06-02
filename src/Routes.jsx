@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import ProtectedRoute from './components/containers/ProtectedRoute/ProtectedRoutes';
+import AdminRoutes from './components/containers/ProtectedRoute/AdminRoutes';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import SignupPage from './pages/SignupPage/SignupPage';
@@ -20,9 +22,10 @@ const Routes = () => {
       <Route exact path="/upcoming-meetups" component={UpcomingMeetups} />
       <Route exact path="/all-meetups" component={AllMeetups} />
       <Route exact path="/meetup=:meetupId" component={SingleMeetup} />
-      <Route exact path="/create-meetup" component={createMeetup} />
+      <AdminRoutes exact path="/create-meetup" component={createMeetup} />
       <Route exact path="/question=:questionId" component={GetSingleQuestion} />
       <Route exact path="/404" component={NotFound} />
+      <Route component={NotFound} />
     </Switch>
   );
 };

@@ -10,10 +10,8 @@ import {
 } from '../actions/types';
 
 export const initialState = {
-  isAuthenticated: false,
   isLoading: false,
   errorResponse: {},
-  successResponse: { status: '' },
   loggedInUser: null,
 };
 
@@ -28,8 +26,7 @@ export const authReducer = (state = initialState, action) => {
     case SIGNUP_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
-        isAuthenticated: true,
+        loggedInUser: action.response,
         isLoading: false,
         errorResponse: [],
       };
@@ -37,7 +34,6 @@ export const authReducer = (state = initialState, action) => {
     case SIGNUP_FAILED:
       return {
         ...state,
-        isAuthenticated: false,
         isLoading: false,
         errorResponse: action.error,
       };
@@ -51,8 +47,7 @@ export const authReducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        successResponse: action.response,
-        isAuthenticated: true,
+        loggedInUser: action.response,
         isLoading: false,
         errorResponse: [],
       };
@@ -60,7 +55,6 @@ export const authReducer = (state = initialState, action) => {
     case LOGIN_FAILED:
       return {
         ...state,
-        isAuthenticated: false,
         isLoading: false,
         errorResponse: action.error,
       };

@@ -13,6 +13,7 @@ import {
 export const initialState = {
   isLoading: false,
   questions: [],
+  question: [],
 };
 
 export const questionReducer = (state = initialState, action) => {

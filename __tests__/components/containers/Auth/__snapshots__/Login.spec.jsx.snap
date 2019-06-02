@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component renders without errors 1`] = `
+<div>
+  <div
+    className="login--section"
+    id="login-form"
+  >
+    <h1
+      className="login--section__header"
+    >
+      Login
+    </h1>
+    <form
+      className="custom--form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control"
+          name="email"
+          onChange={[Function]}
+          placeholder="E-mail"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="validation--requirement"
+      />
+      <div
+        className="form--group"
+      >
+        <Input
+          className="form--control last"
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="validation--requirement"
+      />
+      <div
+        className="validation--requirement--last"
+      />
+      <Button
+        className="btn-dark submit--button"
+        type="submit"
+        value={<Loader />}
+      />
+    </form>
+    <div
+      className="instruction"
+    >
+      <p
+        className="instruction__acount"
+      >
+        Don't have an account?
+      </p>
+      <Link
+        className="instruction__signup"
+        to="/signup"
+      >
+        Sign up
+      </Link>
+    </div>
+  </div>
+</div>
+`;
