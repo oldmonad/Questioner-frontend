@@ -68,7 +68,10 @@ export class Login extends Component {
     });
   };
   render() {
-    const { isLoading } = this.props.auth;
+    const {
+      auth: { isLoading },
+    } = this.props;
+
     return (
       <div>
         <div id="login-form" className="login--section">
@@ -113,7 +116,7 @@ export class Login extends Component {
             </div>
 
             <Button
-              className="submit--button"
+              className="btn-dark submit--button"
               type="submit"
               value={isLoading ? <Loader /> : 'Login'}
             />
@@ -135,7 +138,10 @@ Login.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({ auth: state.auth });
+const mapStateToProps = state => ({
+  auth: state.auth,
+  isLoading: state.auth.isLoading,
+});
 
 export default connect(
   mapStateToProps,

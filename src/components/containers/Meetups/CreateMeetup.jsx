@@ -10,8 +10,6 @@ import Input from '../../presentationals/Input/Input';
 
 // import Loader from '../../presentationals/Loader/Loader';
 
-//Reducer
-
 export class CreateMeetup extends Component {
   state = {
     meetupData: {
@@ -69,7 +67,7 @@ export class CreateMeetup extends Component {
         />
         <br />
         <Button
-          className="submit--button"
+          className="btn-dark submit--button"
           type="submit"
           value="Post Meetup"
           onClick={this.submitHandler}

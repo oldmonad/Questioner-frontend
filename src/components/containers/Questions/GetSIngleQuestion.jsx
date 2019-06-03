@@ -19,11 +19,13 @@ fontawesome.library.add(
 );
 
 import { fetchQuestion } from '../../../store/actions/questions';
+import { fetchComments } from '../../../store/actions/comments';
 
 import FullPageLoader from '../../presentationals/FullPageLoader/FullPageLoader';
+import Comments from '../../presentationals/Comments/Comments';
 
 class GetSIngleQuestion extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     const {
       match: {
         params: { questionId },
@@ -31,10 +33,22 @@ class GetSIngleQuestion extends Component {
       history,
     } = this.props;
 
-    this.props.fetchQuestion(questionId, history);
+    await this.props.fetchQuestion(questionId, history);
+    this.props.fetchComments(questionId);
   }
   render() {
-    const { isLoading } = this.props.question;
+    const {
+      question: { isLoading, question },
+      comments: { comments },
+    } = this.props;
+
+    let questionComments;
+    if (comments) {
+      questionComments = comments.map(comment => (
+        <Comments comment={comment} key={comment.id} />
+      ));
+    }
+
     return (
       <Fragment>
         {isLoading && <FullPageLoader />}
@@ -46,10 +60,7 @@ class GetSIngleQuestion extends Component {
                   <h6 className="card-subtitle mb-2 text-muted">
                     Poster's name
                   </h6>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
+                  <p className="card-text">{question.body}</p>
                   <button
                     type="button"
                     className="btn btn-labeled btn-success mr-2"
@@ -83,17 +94,7 @@ class GetSIngleQuestion extends Component {
                   Post Comment
                 </button>
               </div>
-              <div className="card">
-                <div className="card-body">
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    Card subtitle
-                  </h6>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                </div>
-              </div>
+              {questionComments}
             </div>
           </div>
         </div>
@@ -104,11 +105,15 @@ class GetSIngleQuestion extends Component {
 
 GetSIngleQuestion.prototypes = {
   fetchQuestion: PropTypes.func.isRequired,
+  fetchComments: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ question: state.questions });
+const mapStateToProps = state => ({
+  question: state.questions,
+  comments: state.comments,
+});
 
 export default connect(
   mapStateToProps,
-  { fetchQuestion },
+  { fetchQuestion, fetchComments },
 )(withRouter(GetSIngleQuestion));

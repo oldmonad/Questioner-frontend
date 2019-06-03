@@ -33,3 +33,21 @@ export const destroyEncodedUser = () => {
   localStorage.removeItem('encodedUser');
   return null;
 };
+
+export const isAdmin = () => {
+  if (decodeToken(getToken()).admin === true) return true;
+  return false;
+};
+
+export const getItem = name => {
+  const item = localStorage.getItem(name);
+  return item;
+};
+
+export const clearLocalStorage = () => {
+  return localStorage.clear();
+};
+
+export const setItem = (name, value) => {
+  localStorage.setItem(name, value);
+};

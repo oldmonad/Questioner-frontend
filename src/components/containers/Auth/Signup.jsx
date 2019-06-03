@@ -53,16 +53,16 @@ export class Signup extends Component {
       return false;
     }
 
-    let redirectUrl;
+    // let redirectUrl;
 
-    state ? (redirectUrl = state.from.pathname) : (redirectUrl = '/');
+    // state ? (redirectUrl = state.from.pathname) : (redirectUrl = '/');
 
     const {
       history,
       location: { state },
     } = this.props;
 
-    await this.props.signupUser(this.state.userDetails, history, redirectUrl);
+    await this.props.signupUser(this.state.userDetails, history);
     this.setState({
       errorMessage: this.props.auth.errorResponse[0],
     });

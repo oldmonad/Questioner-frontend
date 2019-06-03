@@ -68,6 +68,13 @@ export const fetchSingleMeetupSuccess = response => {
   };
 };
 
+export const fetchSingleMeetupError = error => {
+  return {
+    type: FETCH_SINGLE_MEETUP_ERROR,
+    error,
+  };
+};
+
 export const fetchMeetups = () => {
   return async dispatch => {
     try {
