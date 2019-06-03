@@ -37,11 +37,24 @@ export class CreateMeetup extends Component {
   };
   render() {
     return (
-      <div className="container">
-        <h1>Create a meetup</h1>
+      <div
+        className="container"
+        style={{
+          padding: '5% 10%',
+        }}
+      >
+        <h1
+          style={{
+            fontSize: '2rem',
+            marginBottom: '2rem',
+            textAlign: 'center',
+          }}
+        >
+          Create a meetup
+        </h1>
         <Input
           type="text"
-          className="form-control form-rounded"
+          className="form-control form-control-lg form-rounded"
           placeholder="Meetup topic..."
           onChange={this.onChange}
           value={this.state.meetupData.topic}
@@ -50,7 +63,7 @@ export class CreateMeetup extends Component {
         <br />
         <Input
           type="text"
-          className="form-control form-rounded"
+          className="form-control form-control-lg  form-rounded"
           placeholder="Meetup address..."
           onChange={this.onChange}
           value={this.state.meetupData.location}
@@ -59,7 +72,7 @@ export class CreateMeetup extends Component {
         <br />
         <Input
           type="datetime-local"
-          className="form-control form-rounded"
+          className="form-control form-control-lg  form-rounded"
           placeholder="Meetup time"
           onChange={this.onChange}
           value={this.state.meetupData.time}
@@ -67,7 +80,7 @@ export class CreateMeetup extends Component {
         />
         <br />
         <Button
-          className="btn-dark submit--button"
+          className="btn-dark btn-lg submit--button"
           type="submit"
           value="Post Meetup"
           onClick={this.submitHandler}
